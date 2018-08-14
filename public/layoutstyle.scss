@@ -1,0 +1,38 @@
+body {
+    background-color: black;
+}
+
+
+#signup-login {
+    display: flex;
+    justify-content: flex-end
+}
+
+#title-of-site {
+    font-size: 150px;
+    color:white;
+}
+
+#title-container {
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+hr {
+    width: 40%;
+    background-color: yellow
+}
+
+#adulting-description {
+    width: 70%;
+    text-align: center;
+    color:white;
+    margin-top:20px
+}
+
+#description-container {
+    display:flex;
+    justify-content: center;
+}
