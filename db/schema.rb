@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2018_08_13_184549) do
     t.string "username"
     t.string "email"
     t.date "birthday"
+    t.string "photo_url"
   end
 
 end
