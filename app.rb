@@ -9,3 +9,9 @@ require './models/post_tag.rb'
 
 
 set :database, {adapter: 'postgresql', database: 'adulting'}
+
+get "/" do
+
+    erb :signup_or_login , :layout => :layouttwo
+
+end
