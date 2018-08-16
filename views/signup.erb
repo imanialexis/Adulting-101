@@ -1,0 +1,28 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="<%= url('style.css') %>">
+    <title>Adulting 101</title>
+</head>
+
+
+<h1>Sign Up</h1>
+
+<form action="/signup" method="post">
+  <input type="text" name="first_name" id="first_name" placeholder=" Enter your first name">
+   <input type="text" name="last_name" id="last_name" placeholder=" Enter your last name">
+  <input type="text" name="username" id="username" placeholder="Enter your username"><br>
+  <input type="text" name="email" id="email" placeholder="Enter your email">
+  <input type="text" name="birthday" id="birthday" placeholder="yyyy/mm/dd">
+  <input type="text" name="photo_url" id="photo_url" placeholder="Image url here :https://...."><br>
+  <input type="password" name="password" id="password" placeholder="Enter your password">
+  <input type="submit" value="Sign Up">
+</form>
+
+</body>
+</html>

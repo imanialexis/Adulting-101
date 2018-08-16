@@ -2,4 +2,8 @@ body {
   background: black;
   color: white; }
 
+#signup-login {
+  display: flex;
+  justify-content: flex-end; }
+
 /*# sourceMappingURL=style.css.map */
