@@ -18,7 +18,8 @@
     <a href ="/signout"><button class="ui inverted yellow button"> Sign Out </button></a>
 </div>
 
-
+    
+    
 <% @posts.each do |info| %>
 <div id ='posts-container'>
     <div id ='photo_url>'>
@@ -28,6 +29,12 @@
     <div id ='title'>
     <%= info.title %>
     </div>
+
+    <div id ="created_by">
+    <% @created_by = User.find(info.user_id) %>
+    Created by : <%= @created_by.username %>
+    </div>
+   
 
     <div id ='post-content'>
     <%= info.post_content%>

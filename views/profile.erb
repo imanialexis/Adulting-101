@@ -13,13 +13,14 @@
 <body>
 
 <div id ='signup-login' >
-<button class="ui inverted yellow button"><i class="pencil alternate icon"></i>New Post</button>
-  <a href = "/users/<%= session[:user_id]%>/edit_profile">  <button class="ui inverted yellow button"><i class="edit outline icon"></i>Edit your profile</button>
-    <a href ='/posts'><button class="ui inverted yellow button"><i class="newspaper icon"></i>Posts</button></a>
-    <a href ="/signout"><button class="ui inverted yellow button">Sign Out</button></a>
+<a href="/posts/new"><button class="ui inverted yellow button"><i class="pencil alternate icon"></i>New Post</button></a>
+<a href = "/users/<%= session[:user_id]%>/edit_profile">  <button class="ui inverted yellow button"><i class="edit outline icon"></i>Edit your profile</button>
+<a href ='/posts'><button class="ui inverted yellow button"><i class="newspaper icon"></i>Posts</button></a>
+<a href ="/signout"><button class="ui inverted yellow button">Sign Out</button></a>
 </div>
 <br>
- Welcome, <%= @current_user.username%>
+Logged on as : <%= @current_user.username%>
+<br>
 
 
 <% @posts_by_current_user.each do |info| %>
@@ -38,7 +39,6 @@
 
     <div id = 'edit_or_delete'>
   <a href="/users/<%= info.id %>/edit_post"><button class="ui inverted yellow button"><i class="edit outline icon"></i>Edit</button></a>
-    <button class="ui inverted yellow button"><i class="trash alternate outline icon"></i>Delete</button>
     </div>
 <% end %>
 

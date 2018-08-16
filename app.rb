@@ -37,10 +37,41 @@ post "/login" do
     end
 end
 
+
+
+
 get "/posts" do
+    if session[:user_id]
+    # @current_user =  User.find(session[:user_id])
     @posts = Post.all
+    
     erb :post
+    else
+        redirect "/"
+    end
 end
+
+
+get "/posts/new" do
+    erb :new_post
+end
+
+
+post "/posts" do
+    Post.create(
+        title: params[:title],
+        post_content: params[:post_content],
+        photo_url: params[:photo_url],
+        user_id: session[:user_id]
+        )
+    redirect '/posts'
+end
+
+# delete "/post/:id/delete"
+
+# do
+
+
 
 get "/signup" do
     erb :signup
@@ -62,9 +93,11 @@ post "/signup" do
     # this line does the signing in
     session[:user_id] = @user.id
   
-    # assuming this page exists
     redirect "/posts"
   end
+
+
+
 
   get "/signout" do
     # this is the line that signs a user out
@@ -73,46 +106,8 @@ post "/signup" do
     redirect "/"
   end
 
-  get '/users/:id/edit_profile' do 
-    if session[:user_id]
-        @current_user =  User.find(params[:id])
-        @posts_by_current_user = @current_user.posts
 
-        erb :edit_profile
-
-    else
-        redirect "/"
-    end
-end
-
-get '/users/:id/edit_post' do 
-    if session[:user_id]
-        @current_post =  Post.find(params[:id])
-        erb :edit_post
-    else
-        redirect "/posts"
-    end
-end
-
-put "/newpost/:id" do
-    current_user = User.find(session[:user_id])
-
-    @current_post = Post.find(params[:id])
-
-    @current_post.update(
-        title: params[:title],
-        post_content: params[:post_content],
-        photo_url: params[:photo_url], 
-    )
-
-    redirect "/users/#{current_user.id}"
-
-end
-
-
-
-
-get "/users/:id" do
+  get "/users/:id" do
     if session[:user_id]
         @current_user =  User.find(params[:id])
         @posts_by_current_user = Post.where(user_id: @current_user.id)
@@ -145,4 +140,35 @@ delete '/users/:id' do
     @current_user.destroy
     session[:user_id] = nil
     redirect '/'
+end
+
+
+
+  get '/users/:id/edit_profile' do 
+    if session[:user_id]
+        @current_user =  User.find(params[:id])
+        @posts_by_current_user = @current_user.posts
+
+        erb :edit_profile
+
+    else
+        redirect "/"
+    end
+end
+
+get '/users/:id/edit_post' do 
+    if session[:user_id]
+        @current_post =  Post.find(params[:id])
+        erb :edit_post
+    else
+        redirect "/posts"
+    end
+end
+
+delete "/updatepost/:id" do
+    @current_user =  User.find(session[:user_id])
+    @current_post =  Post.find(params[:id])
+    @current_post.destroy
+
+    redirect "/users/#{@current_user.id}"
 end

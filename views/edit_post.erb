@@ -10,7 +10,8 @@
     <title>Adulting 101</title>
 </head>
 <body>
-<form action="/newpost/<%=@current_post.id%>"  method="POST">
+<h1>Update post </h1>
+<form action="/updatepost/<%=@current_post.id%>"  method="POST">
  <input type="hidden" name="_method" value="PUT">
   <input type="text" name="title" id="title" value=" <%=@current_post.title%>">
    <input type="text" name="post_content" id="post_content" value ="<%=@current_post.post_content%>" >
@@ -19,6 +20,10 @@
 </form>
 
 
+<form action="/updatepost/<%=@current_post.id%>"  method="POST">
+ <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete">
+</form>
 
 </body>
 </html>
