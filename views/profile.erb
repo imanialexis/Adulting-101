@@ -1,0 +1,51 @@
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="<%= url('style.css') %>">
+    <title>Adulting 101</title>
+</head>
+
+<body>
+
+<div id ='signup-login' >
+<button class="ui inverted yellow button"><i class="pencil alternate icon"></i>New Post</button>
+  <a href = "/users/<%= session[:user_id]%>/edit_profile">  <button class="ui inverted yellow button"><i class="edit outline icon"></i>Edit your profile</button>
+    <a href ='/posts'><button class="ui inverted yellow button"><i class="newspaper icon"></i>Posts</button></a>
+    <a href ="/signout"><button class="ui inverted yellow button">Sign Out</button></a>
+</div>
+<br>
+ Welcome, <%= @current_user.username%>
+
+
+<% @posts_by_current_user.each do |info| %>
+<div id ='posts-container'>
+    <div id ='photo_url>'>
+    <img src="<%= info.photo_url%>">
+    </div>
+
+    <div id ='title'>
+    <%= info.title %>
+    </div>
+
+    <div id ='post-content'>
+    <%= info.post_content%>
+    </div>
+
+    <div id = 'edit_or_delete'>
+  <a href="/users/<%= info.id %>/edit_post"><button class="ui inverted yellow button"><i class="edit outline icon"></i>Edit</button></a>
+    <button class="ui inverted yellow button"><i class="trash alternate outline icon"></i>Delete</button>
+    </div>
+<% end %>
+
+
+
+
+
+
+</body>
+</html>
