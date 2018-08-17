@@ -8,7 +8,7 @@ require './models/post_tag.rb'
 
 enable :sessions
 
-set :database, {adapter: 'postgresql', database: 'adulting'}
+
 
 get "/" do
     if session[:user_id]
