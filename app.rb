@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'sinatra/reloader'
+# require 'sinatra/reloader'
 require 'sinatra/activerecord'
 require './models/user.rb'
 require './models/post.rb'
