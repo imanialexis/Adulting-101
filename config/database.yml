@@ -1,7 +1,8 @@
 development:
   adapter: postgresql
   database: 'adulting'
-production:
+
+  production:
   adapter: postgresql
   host: <%= ENV['DATABASE_HOST'] %>
   database: <%= ENV['DATABASE_NAME'] %>

@@ -1,0 +1,42 @@
+
+<div id ='signup-login' >
+    <a href ='/users/<%= session[:user_id] %>'>
+    <button class="ui inverted yellow button"><i class="user icon"></i>Profile</button>
+    <a href ="/signout"><button class="ui inverted yellow button"> Sign Out </button></a>
+</div>
+
+    
+    
+<%  @posts.each do |info| %>
+<div id ='posts-container'>
+    <div id ='photo_url>'>
+    <img src="<%= info.photo_url%>" height =350 width =350 align='center'>
+    </div>
+
+    <p id ='title'>
+    <%= info.title %>
+    </p>
+
+    <p id ="created_by">
+    <% @created_by = User.find(info.user_id) %>
+    Created by : <%= @created_by.username %>
+    </p>
+   
+
+    <p id ='post-content'>
+    <%= info.post_content%>
+    </p>
+    <div class="ui hidden divider"></div>
+</div>
+ <div class="ui hidden divider"></div>
+
+<% end %>
+
+
+
+
+
+
+
+
+
