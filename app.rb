@@ -8,4 +8,3 @@ require './models/post_tag.rb'
 
 
 
-set :database, {adapter: 'postgresql', database: 'adulting'}
