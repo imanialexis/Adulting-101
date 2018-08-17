@@ -2,25 +2,31 @@
 
 <h1> Update your profile</h1>
 
-<div>
-<form action="/users/<%= @current_user.id%>" method="POST">
-<input type="hidden" name="_method" value="PUT">
-  <input type="text" name="first_name" id="first_name" value="<%=@current_user.first_name %>">
-   <input type="text" name="last_name" id="last_name" value="  <%=@current_user.last_name%>">
-  <input type="text" name="username" id="username" value=" <%=@current_user.username %>"><br>
-  <input type="text" name="email" id="email" value="<%=@current_user.email %>">
-  <input type="text" name="birthday" id="birthday" value="<%= @current_user.birthday %>">
-  <div><img src ='<%= @current_user.photo_url%>'></div>
-  <div><input type="text" name="photo_url" id="photo_url" value="<%= @current_user.photo_url%>"></div><br>
-  <input type="password" name="password" id="password" placeholder=" Enter new password">
-  <input type="submit" value="Update">
-</form>
-</div>
 
-<div>
-<form method="POST" action="/users/<%= @current_user.id %>">
-    <input type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete <%= @current_user.username %>">
+<form action="/users/<%=@current_user.id%>" method="POST"   class="ui form">
+    <input type="hidden" name="_method" value="PUT">
+<div class="field" id='signup_form' >
+ <div class="six wide field">
+    <input type="text" name="first_name" id="first_name" value="<%=@current_user.first_name %>"><br>
+    <input type="text" name="last_name" id="last_name" value="  <%=@current_user.last_name%>">
+    <input type="text" name="username" id="username" value=" <%=@current_user.username %>">
+    <input type="text" name="email" id="email" value="<%=@current_user.email %>">
+    <input type="text" name="birthday" id="birthday" value="<%= @current_user.birthday %>">
+    <img src ='<%= @current_user.photo_url%>' width =350 height =350>
+    <input type="text" name="photo_url" id="photo_url" value="<%= @current_user.photo_url%>">
+    <input type="password" name="password" id="password" placeholder=" Enter new password">
+    <input type="submit" value="Update" class="ui inverted yellow button">
+     <div class="six wide field">
+  </div>
 </form>
-</div>
+
+
+
+<form method="POST" action="/users/<%= @current_user.id %>" >
+<div class="field">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" class="ui inverted yellow button" value="Delete <%= @current_user.username %>">
+    </div>
+</form>
+
 

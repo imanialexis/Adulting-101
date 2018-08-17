@@ -7,28 +7,31 @@
 
     
     
-<% @posts.each do |info| %>
+<%  @posts.each do |info| %>
 <div id ='posts-container'>
     <div id ='photo_url>'>
-    <img src="<%= info.photo_url%>">
+    <img src="<%= info.photo_url%>" height =350 width =350 align='center'>
     </div>
 
-    <div id ='title'>
+    <p id ='title'>
     <%= info.title %>
-    </div>
+    </p>
 
-    <div id ="created_by">
+    <p id ="created_by">
     <% @created_by = User.find(info.user_id) %>
     Created by : <%= @created_by.username %>
-    </div>
+    </p>
    
 
-    <div id ='post-content'>
+    <p id ='post-content'>
     <%= info.post_content%>
-    </div>
+    </p>
     <div class="ui hidden divider"></div>
-    <%# <div class="ui inverted divider"></div> %>
+</div>
+ <div class="ui hidden divider"></div>
+
 <% end %>
+
 
 
 

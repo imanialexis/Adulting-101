@@ -44,7 +44,7 @@ get "/posts" do
     if session[:user_id]
     # @current_user =  User.find(session[:user_id])
     @posts = Post.all
-    
+
     erb :post
     else
         redirect "/"
@@ -66,11 +66,6 @@ post "/posts" do
         )
     redirect '/posts'
 end
-
-# delete "/post/:id/delete"
-
-# do
-
 
 
 get "/signup" do
@@ -95,8 +90,6 @@ post "/signup" do
   
     redirect "/posts"
   end
-
-
 
 
   get "/signout" do
@@ -155,6 +148,12 @@ end
         redirect "/"
     end
 end
+
+# put "/users/:id/edit_post" do
+#ADD ME 
+
+#     redirect "/posts"
+# end 
 
 get '/users/:id/edit_post' do 
     if session[:user_id]

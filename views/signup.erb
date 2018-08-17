@@ -2,14 +2,18 @@
 
 <h1>Sign Up</h1>
 
-<form action="/signup" method="post">
+<form action="/signup" method="post" class="ui form">
+<div class="field">
   <input type="text" name="first_name" id="first_name" placeholder=" Enter your first name">
    <input type="text" name="last_name" id="last_name" placeholder=" Enter your last name">
   <input type="text" name="username" id="username" placeholder="Enter your username"><br>
-  <input type="text" name="email" id="email" placeholder="Enter your email">
+  <input type="email" name="email" id="email" placeholder="Enter your email">
   <input type="text" name="birthday" id="birthday" placeholder="yyyy/mm/dd">
   <input type="text" name="photo_url" id="photo_url" placeholder="Image url here :https://...."><br>
   <input type="password" name="password" id="password" placeholder="Enter your password">
-  <input type="submit" value="Sign Up">
+  <input type="submit" value="Sign Up" class="ui inverted yellow button" id='submit_button'>
+  </div>
 </form>
 
+</body>
+</html>
