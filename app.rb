@@ -1,5 +1,6 @@
 require 'sinatra'
 # require 'sinatra/reloader'
+#comment out reloader when deploying to heroku
 require 'sinatra/activerecord'
 require './models/user.rb'
 require './models/post.rb'
