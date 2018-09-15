@@ -1,6 +1,6 @@
 
 <h1>Edit post </h1>
-<form action="/updatepost/<%=@current_post.id%>"  method="POST"  class="ui form">
+<form action="/users/<%= session[:user_id]%>"  method="POST"  class="ui form">
 
 <div class="six wide field">
 
