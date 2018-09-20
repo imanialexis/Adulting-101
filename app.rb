@@ -180,19 +180,5 @@ end
     end
 end
 
-# put "/users/:id/edit_post" do
-#     @current_post = Post.find(params[:id])
-#     @current_post.update(title: params[:title], post_content: params[:post_content], photo_url: params[:photo_url], user_id: session[:user_id])
 
-#     redirect "/posts"
-# end 
-
-# get '/users/:id/edit_post' do 
-#     if session[:user_id]
-#         @current_post =  Post.find(params[:id])
-#         erb :edit_post
-#     else
-#         redirect "/posts"
-#     end
-# end
 
