@@ -1,10 +1,12 @@
 development:
   adapter: postgresql
-  database: 'adulting'
+  database: adulting
 
-  production:
+production:
   adapter: postgresql
   host: <%= ENV['DATABASE_HOST'] %>
   database: <%= ENV['DATABASE_NAME'] %>
   username: <%= ENV['DATABASE_USER'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
+
+  #this file is tab sensitive AF. make sure tabbing is correct.

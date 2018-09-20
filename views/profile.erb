@@ -25,10 +25,12 @@
     <%= info.post_content%>
     </p>
 
+    <%# <%= puts info.id %> 
     <p id = 'edit_or_delete'>
-  <a href="/users/<%= info.id %>/edit_post"><button class="ui inverted yellow button"><i class="edit outline icon"></i>Edit</button></a>
+  <a href="/posts/<%= info.id %>/edit"><button class="ui inverted yellow button"><i class="edit outline icon"></i>Edit</button></a>
     </p>
      <div class="ui hidden divider"></div>
+   
 
 <% end %>
 
