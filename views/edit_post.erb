@@ -1,12 +1,12 @@
 
 <h1>Edit post </h1>
-<form action="/users/<%= session[:user_id]%>"  method="POST"  class="ui form">
+<form action="/posts/<%= @current_post.id %>/edit"  method="POST"  class="ui form">
 
 <div class="six wide field">
 
 
   <input type="hidden" name="_method" value="PUT">
-    <input type="text" name="title" id="titles" value=" <%=@current_post.title%>">
+    <input type="text" name="title" id="title" value=" <%=@current_post.title%>">
     <input type="text" name="post_content" id="post_content" value ="<%=@current_post.post_content%>" >
     <input type="text" name="photo_url" id="photo_url"  value="<%=@current_post.photo_url%> "><br>
     <input type="submit" value="Update" class="ui inverted yellow button">
@@ -14,7 +14,7 @@
 </form>
 
 
-<form action="/updatepost/<%=@current_post.id%>"  method="POST">
+<form action="/posts/<%= @current_post.id %>/delete"  method="POST">
 <div class="field">
  <input type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete" class="ui inverted yellow button">

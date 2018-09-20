@@ -39,36 +39,6 @@ post "/login" do
 end
 
 
-
-
-get "/posts" do
-    if session[:user_id]
-    # @current_user =  User.find(session[:user_id])
-    @posts = Post.all
-
-    erb :post
-    else
-        redirect "/"
-    end
-end
-
-
-get "/posts/new" do
-    erb :new_post
-end
-
-
-post "/posts" do
-    Post.create(
-        title: params[:title],
-        post_content: params[:post_content],
-        photo_url: params[:photo_url],
-        user_id: session[:user_id]
-        )
-    redirect '/posts'
-end
-
-
 get "/signup" do
     erb :signup
 end
@@ -99,6 +69,66 @@ post "/signup" do
       
     redirect "/"
   end
+
+
+
+get "/posts" do
+    if session[:user_id]
+    @posts = Post.order('created_at DESC').all
+    #post are in order where newest will be on top
+
+    erb :post
+    else
+        redirect "/"
+    end
+end
+
+get "/posts/:id/edit" do
+    puts 'HELLO WORLD'
+    # @user = User.find(params[:id])
+    @current_post = Post.find(params[:id])
+    puts '*************'
+    puts @current_post.id
+    puts '*************'
+    erb :edit_post
+end
+
+
+put "/posts/:id/edit" do
+
+        @current_post = Post.find(params[:id])
+        @current_post.update(title: params[:title], post_content: params[:post_content], photo_url: params[:photo_url], user_id: session[:user_id])
+    
+        redirect "/posts"
+    end
+
+    delete "/posts/:id/delete" do
+        puts "IM IN THE DELETE METHOD"
+        @current_user =  User.find(session[:user_id])
+        @current_post =  Post.find(params[:id])
+        @current_post.destroy
+    
+        redirect "/users/#{@current_user.id}"
+    end
+    
+
+get "/posts/new" do
+    erb :new_post
+end
+
+
+post "/posts" do
+    Post.create(
+        title: params[:title],
+        post_content: params[:post_content],
+        photo_url: params[:photo_url],
+        user_id: session[:user_id]
+        )
+    redirect '/posts'
+end
+
+ 
+
 
 
   get "/users/:id" do
@@ -151,24 +181,18 @@ end
 end
 
 # put "/users/:id/edit_post" do
-#ADD ME 
+#     @current_post = Post.find(params[:id])
+#     @current_post.update(title: params[:title], post_content: params[:post_content], photo_url: params[:photo_url], user_id: session[:user_id])
 
 #     redirect "/posts"
 # end 
 
-get '/users/:id/edit_post' do 
-    if session[:user_id]
-        @current_post =  Post.find(params[:id])
-        erb :edit_post
-    else
-        redirect "/posts"
-    end
-end
+# get '/users/:id/edit_post' do 
+#     if session[:user_id]
+#         @current_post =  Post.find(params[:id])
+#         erb :edit_post
+#     else
+#         redirect "/posts"
+#     end
+# end
 
-delete "/updatepost/:id" do
-    @current_user =  User.find(session[:user_id])
-    @current_post =  Post.find(params[:id])
-    @current_post.destroy
-
-    redirect "/users/#{@current_user.id}"
-end

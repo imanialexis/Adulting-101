@@ -14,7 +14,7 @@
     <input type="text" name="birthday" id="birthday" value="<%= @current_user.birthday %>">
     <img src ='<%= @current_user.photo_url%>' width =350 height =350>
     <input type="text" name="photo_url" id="photo_url" value="<%= @current_user.photo_url%>">
-    <input type="password" name="password" id="password" placeholder=" Enter new password">
+    <input type="password" name="password" id="password" value="<%= @current_user.password%>">
     <input type="submit" value="Update" class="ui inverted yellow button">
      <div class="six wide field">
   </div>
